@@ -20,7 +20,8 @@ class BlockSparseMatrixBase(torch.nn.Module):
 
         self.block_shape = tuple(block_shape)
 
-        self.data = torch.nn.Parameter(data)
+        # assume data is already a parameter requiring gradient
+        self.data = data # torch.nn.Parameter(data)
 
         self.rebuild(block_mask, callback=False)
 
